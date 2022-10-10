@@ -1,14 +1,15 @@
 import java.util.*;
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        // TODO setup valid input range ie 0-255//DONE
+        //System.out.println(Arrays.toString(colorInput()));
+        toHex(colorInput());
 
-        System.out.println(Arrays.toString(colorInput()));
     }
 
-    static int[] colorInput(){
+
+    static int[] colorInput() {
 
         Scanner input = new Scanner(System.in);
         int red, green, blue;
@@ -28,11 +29,16 @@ public class Main {
             blue = input.nextInt();
         } while (blue < 0 || blue > 255);
 
-        int[] rgb = new int [3];
+        int[] rgb = new int[3];
         rgb[0] = red;
         rgb[1] = green;
         rgb[2] = blue;
         return rgb;
-
     }
+
+    static String toHex() {
+        // Method using a list of 3 INTs ie [x,y,z]
+        return xxx;
+    }
+
 }
