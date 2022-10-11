@@ -1,18 +1,22 @@
 import java.util.*;
 public class Main {
 
-    public static void main(String[] args) {
+    static int red, green, blue;
 
-        //System.out.println(Arrays.toString(colorInput()));
-        toHex(colorInput());
+    public static void main(String[] args) {                            // METHOD
+
+        colorInput();                                                   // call METHOD colorInput()
+        System.out.println("RED: " + red + "\nGREEN: " + green + "\nBLUE: " + blue);
+
+        //ConvertRGB(red, green, blue);
 
     }
 
 
-    static int[] colorInput() {
+
+    static void colorInput() {                                          // METHOD
 
         Scanner input = new Scanner(System.in);
-        int red, green, blue;
 
         do {
             System.out.print("Enter RED value (0-255): ");
@@ -28,17 +32,5 @@ public class Main {
             System.out.print("Enter BLUE value (0-255): ");
             blue = input.nextInt();
         } while (blue < 0 || blue > 255);
-
-        int[] rgb = new int[3];
-        rgb[0] = red;
-        rgb[1] = green;
-        rgb[2] = blue;
-        return rgb;
     }
-
-    static String toHex() {
-        // Method using a list of 3 INTs ie [x,y,z]
-        return xxx;
-    }
-
 }
