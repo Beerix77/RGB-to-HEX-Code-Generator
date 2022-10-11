@@ -8,10 +8,11 @@ public class Main {
         colorInput();                                                   // call METHOD colorInput()
         System.out.println("RED: " + red + "\nGREEN: " + green + "\nBLUE: " + blue);
 
-        //ConvertRGB(red, green, blue);
+        convertRGB(red, green, blue);
 
     }
 
+    //private static void convertRGB(int red, int green, int blue) {}
 
 
     static void colorInput() {                                          // METHOD
@@ -32,5 +33,31 @@ public class Main {
             System.out.print("Enter BLUE value (0-255): ");
             blue = input.nextInt();
         } while (blue < 0 || blue > 255);
+    }
+
+    static void convertRGB(int red, int green, int blue){
+
+
+                //double red = 182;
+
+                int resultA = (int)red/16;
+                double resultB = (1-((Math.ceil(red/16))-(red/16)))*16;
+        switch (resultA) {
+            case 10 -> resultA = 'a';
+            case 11 -> resultA = 'b';
+            case 12 -> resultA = 'c';
+            case 13 -> resultA = 'd';
+            case 14 -> resultA = 'e';
+            case 15 -> resultA = 'f';
+            default -> {
+            }
+        }
+
+
+                System.out.println(resultA);
+                System.out.println(resultB);
+            }
+        }
+
     }
 }
