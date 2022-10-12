@@ -1,21 +1,22 @@
 import java.util.*;
 public class Main {
 
-    static double red, green, blue;
+    static double red, green, blue, resultA, resultB;
 
     public static void main(String[] args) {                            // METHOD
 
         colorInput();                                                   // call METHOD colorInput()
         System.out.println("RED: " + red + "\nGREEN: " + green + "\nBLUE: " + blue);
         convertRGB(red);
-        convertRGB(green);
-        convertRGB(blue);
+        //convertRGB(green);
+        //convertRGB(blue);
 
 
     }
 
 //==================================================================== METHOD BELOW ===========================
 
+    // Input Red, Green & Blue values within (0-255)
     static void colorInput() {
 
         Scanner input = new Scanner(System.in);
@@ -39,29 +40,26 @@ public class Main {
 
 
     // ====================================================================  METHOD BELOW ====
-    static void convertRGB(double color) {
+     static void convertRGB(double color) {
 
-
-        double resultA = color / 16;
-        double resultB = (1 - ((Math.ceil(color / 16)) - (color / 16))) * 16;
-
-        switch ((int) resultA) {
-            case 10 -> resultA = 'a';
-            case 11 -> resultA = 'b';
-            case 12 -> resultA = 'c';
-            case 13 -> resultA = 'd';
-            case 14 -> resultA = 'e';
-            case 15 -> resultA = 'f';
-            default -> {
-            }
+        if (color >= 16.0) {
+            resultA = (int)color / 16.0;
+            resultB = (int)(1 - ((Math.ceil(color / 16.0)) - (color / 16.0))) * 16.0;
+        }
+        else {
+            resultA = color / 16.0;
+            resultB = (1 - ((Math.ceil(color / 16.0)) - (color / 16.0))) * 16.0;
         }
 
-        System.out.println("resultA: " + resultA);
-        System.out.println("resultB: " + resultB);
+
+        /*
+        switch (resultA){
+            case 10
+        }
+*/
+
+
+         System.out.println((int)resultA);
+         System.out.println((int)resultB);
     }
-
-// ============================================================================== END =====
-    }
-
-
-
+}
