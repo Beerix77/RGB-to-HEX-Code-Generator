@@ -1,21 +1,22 @@
 import java.util.*;
 public class Main {
 
-    static int red, green, blue;
+    static double red, green, blue;
 
     public static void main(String[] args) {                            // METHOD
 
         colorInput();                                                   // call METHOD colorInput()
         System.out.println("RED: " + red + "\nGREEN: " + green + "\nBLUE: " + blue);
+        convertRGB(red);
+        convertRGB(green);
+        convertRGB(blue);
 
-        convertRGB(red, green, blue);
 
     }
 
-    //private static void convertRGB(int red, int green, int blue) {}
+//==================================================================== METHOD BELOW ===========================
 
-
-    static void colorInput() {                                          // METHOD
+    static void colorInput() {
 
         Scanner input = new Scanner(System.in);
 
@@ -34,15 +35,17 @@ public class Main {
             blue = input.nextInt();
         } while (blue < 0 || blue > 255);
     }
+// =============================================================================== END ===
 
-    static void convertRGB(int red, int green, int blue){
+
+    // ====================================================================  METHOD BELOW ====
+    static void convertRGB(double color) {
 
 
-                //double red = 182;
+        double resultA = color / 16;
+        double resultB = (1 - ((Math.ceil(color / 16)) - (color / 16))) * 16;
 
-                int resultA = (int)red/16;
-                double resultB = (1-((Math.ceil(red/16))-(red/16)))*16;
-        switch (resultA) {
+        switch ((int) resultA) {
             case 10 -> resultA = 'a';
             case 11 -> resultA = 'b';
             case 12 -> resultA = 'c';
@@ -53,11 +56,12 @@ public class Main {
             }
         }
 
-
-                System.out.println(resultA);
-                System.out.println(resultB);
-            }
-        }
-
+        System.out.println("resultA: " + resultA);
+        System.out.println("resultB: " + resultB);
     }
-}
+
+// ============================================================================== END =====
+    }
+
+
+
