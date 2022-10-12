@@ -1,20 +1,17 @@
 import java.util.*;
 public class Main {
 
-    static double red, green, blue, resultA, resultB;
+    static int red, green, blue;
 
-    public static void main(String[] args) {                            // METHOD
+    public static void main(String[] args) {
 
-        colorInput();                                                   // call METHOD colorInput()
+        colorInput();
         System.out.println("RED: " + red + "\nGREEN: " + green + "\nBLUE: " + blue);
         convertRGB(red);
-        //convertRGB(green);
-        //convertRGB(blue);
-
-
+        convertRGB(green);
+        convertRGB(blue);
     }
 
-//==================================================================== METHOD BELOW ===========================
 
     // Input Red, Green & Blue values within (0-255)
     static void colorInput() {
@@ -36,30 +33,11 @@ public class Main {
             blue = input.nextInt();
         } while (blue < 0 || blue > 255);
     }
-// =============================================================================== END ===
 
 
-    // ====================================================================  METHOD BELOW ====
-     static void convertRGB(double color) {
+    static void convertRGB(int color) {
+        String hexValue = Integer.toHexString(color);
+        System.out.print(hexValue);
 
-        if (color >= 16.0) {
-            resultA = (int)color / 16.0;
-            resultB = (int)(1 - ((Math.ceil(color / 16.0)) - (color / 16.0))) * 16.0;
-        }
-        else {
-            resultA = color / 16.0;
-            resultB = (1 - ((Math.ceil(color / 16.0)) - (color / 16.0))) * 16.0;
-        }
-
-
-        /*
-        switch (resultA){
-            case 10
-        }
-*/
-
-
-         System.out.println((int)resultA);
-         System.out.println((int)resultB);
     }
 }
